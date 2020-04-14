@@ -2,6 +2,9 @@
 
 namespace Sunxyw\LaravelQuickRole\Models;
 
-class Role
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
 {
+    protected $fillable = [];
 }
