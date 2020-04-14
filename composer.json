@@ -1,0 +1,17 @@
+{
+    "name": "sunxyw\/laravel-quick-role",
+    "description": "A package to quickly build a simple roles manager system",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sunxyw",
+            "email": "xy2496419818@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sunxyw\\LaravelQuickRole\\": "src"
+        }
+    }
+}
