@@ -66,4 +66,21 @@ trait HasRole
         $this->role_id = $role->id;
         return $this->save();
     }
+
+    /**
+     * 判断用户是否有其中一个角色
+     *
+     * @param iterable $roles 可循环类型，包含角色实例/名称/ID
+     * @return boolean
+     */
+    public function hasAnyRole($roles): bool
+    {
+        foreach ($roles as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

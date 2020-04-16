@@ -39,5 +39,7 @@ class ServiceProvider extends SupportServiceProvider
             __DIR__ . '/src/config/quick-role.php',
             'quick-role'
         );
+        // TODO: 尝试监听用户注册事件
+        $this->app->register(EventServiceProvider::class);
     }
 }
