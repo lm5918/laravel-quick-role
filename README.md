@@ -1,27 +1,54 @@
-<h1 align="center"> laravel-quick-role </h1>
+<h1 align="center"> Laravel Quick Role </h1>
 
-<p align="center"> A package to quickly build a simple roles manager system.</p>
-
+<p align="center"> A package to quickly build a simple roles manager system. </p>
 
 ## Installing
 
 ```shell
-$ composer require sunxyw/laravel-quick-role -vvv
+$ composer require sunxyw/laravel-quick-role
 ```
 
 ## Usage
 
-TODO
+First, add the `Sunxyw\LaravelQuickRole\HasRole` trait to your `User` model:
 
-## Contributing
+```php
+use Sunxyw\LaravelQuickRole\HasRole;
 
-You can contribute in one of three ways:
+class User extends Authenticatable
+{
+    use HasRole;
+}
+```
 
-1. File bug reports using the [issue tracker](https://github.com/sunxyw/laravel-quick-role/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/sunxyw/laravel-quick-role/issues).
-3. Contribute new features or update the wiki.
+Then, create a new role for testing:
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+```php
+use Sunxyw\LaravelQuickRole\Models\Role;
+
+Role::create([
+    'name' => 'admin',
+    'title' => 'Administrator',
+    'color' => 'FF5555',
+]);
+```
+
+Now, you can assign a role to a user by:
+
+```php
+$user = User::find(1);
+$user->assignRole('admin'); // By name
+$user->assignRole(Role::find(1)); // By instance
+$user->assignRole(1); // By ID
+```
+
+You can check user's role by:
+
+```php
+$user->hasRole('admin'); // Accept name, ID and instance
+// or
+$user->hasAnyRole(['admin', 'leader']);
+```
 
 ## License
 
