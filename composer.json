@@ -16,5 +16,12 @@
     "psr-4": {
       "Sunxyw\\LaravelQuickRole\\": "src"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Sunxyw\\LaravelQuickRole\\ServiceProvider"
+      ]
+    }
   }
 }
