@@ -20,10 +20,10 @@ class ServiceProvider extends SupportServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/src/config/quick-role.php' => config_path('quick-role.php'),
+            __DIR__ . '/config/quick-role.php' => config_path('quick-role.php'),
         ], 'config');
         $this->publishes([
-            __DIR__ . '/src/migrations/' => database_path('migrations'),
+            __DIR__ . '/migrations/' => database_path('migrations'),
         ], 'migrations');
         $this->loadMigrationsFrom(__DIR__ . '/src/migrations');
     }
@@ -36,7 +36,7 @@ class ServiceProvider extends SupportServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/src/config/quick-role.php',
+            __DIR__ . '/config/quick-role.php',
             'quick-role'
         );
         // TODO: 尝试监听用户注册事件
