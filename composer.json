@@ -8,10 +8,6 @@
       "email": "xy2496419818@gmail.com"
     }
   ],
-  "require": {
-    "illuminate/database": "^7",
-    "illuminate/support": "^7"
-  },
   "autoload": {
     "psr-4": {
       "Sunxyw\\LaravelQuickRole\\": "src"
